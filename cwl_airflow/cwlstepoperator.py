@@ -66,7 +66,8 @@ class CWLStepOperator(BaseOperator):
         post_status(context)
 
         self.cwlwf, it_is_workflow = load_cwl(self.dag.default_args["cwl_workflow"], self.dag.default_args)
-        self.cwl_step = [step for step in self.cwlwf.steps if self.task_id == step.id.split("#")[-1]][0] if it_is_workflow else self.cwlwf
+        
+        self.cwl_step = [step for step in self.cwlwf.steps if self.task_id == step.id.split("#")[-1].split('/')[-1]][0] if it_is_workflow else self.cwlwf
 
         _logger.info('{0}: Running!'.format(self.task_id))
 
