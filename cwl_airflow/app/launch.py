@@ -72,6 +72,7 @@ class Launcher:
             os.path.join(self.contents_dir, "Resources/app_packages/bin"),
             os.path.join(self.contents_dir, "Resources/app/bin"),
             os.path.join(self.contents_dir, "MacOS"),
+            os.path.join(os.getenv("CONDA_PREFIX"), "bin"),
             "/usr/local/bin",
             "/usr/local/sbin",
             "/usr/bin",
